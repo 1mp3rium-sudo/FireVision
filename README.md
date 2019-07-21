@@ -1,2 +1,4 @@
 # FireVision
-Burning through boundaries to build a better world.
+"Burning through boundaries to build a better world."
+
+FireVision is an android app designed to help bridge the gap between technology and the real world. While tactics like augmented reality and virtual reality seek to bring technology into the real world, FireVision takes things backwards, seeking to bring the real world into technology, utilizing the vast power of ML to process text visually. FireVision allows you to easily record notes and ideas, seamlessly transitioning them to text files which can be ported to your various needs. In addition, FireVision allows you to process various queries and requests you may need to make; requests as simple as setting up your morning 6 o clock alarm, or requests as critical as keeping you up to date on all of your various tasks. No matter what the application is, FireVision allows you to bridge the gap between the real world and technology from the other side, allowing greater ease in the revolution of the technological world.
