@@ -35,7 +35,10 @@ public class testParser {
 		
 		if(holder[0].indexOf("remind")!=-1 || holder[0].indexOf("remember")!=-1)
 			return 1;
-		
+
+		if (holder[0].toLowerCase().contains("save")){
+			return 4;
+		}
 		
 		
 		

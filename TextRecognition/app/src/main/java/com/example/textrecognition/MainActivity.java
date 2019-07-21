@@ -73,6 +73,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void processData(String text){
+
+    }
+
     private void detectImg() {
         FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(imageBitmap);
         //textView.setText("hello");
@@ -97,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (parse.parseStr()){
             case 0:
-                runTextDemo();
+                //do nothing
                 break;
             case 1:
                 doNotificationDemo();
@@ -105,6 +109,35 @@ public class MainActivity extends AppCompatActivity {
             case 2:
                 setAlarm(0, 0);
                 break;
+            case 3:
+                //todo: Implement text to speech AI
+                break;
+            case 4:
+                runTextDemo();
+                break;
+        }
+    }
+
+    private void runAlarm(String data){
+        testParser parser = new testParser(data);
+
+        if (parser.parseStr() == 2){
+            setAlarm(0, 0);
+        }
+    }
+
+    private void processNotification(String data){
+        testParser parser = new testParser(data);
+        if (parser.parseStr() == 1){
+            postNotification("Reminder: ", data);
+        }
+    }
+
+    private void processTextFile(String data){
+        testParser parser = new testParser(data);
+        if (parser.parseStr() == 4){
+            writeToFile(data, getApplicationContext());
+            Toast.makeText(getApplicationContext(), "File Saved Successfully", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -188,9 +221,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void runSystems(String data){
+        processTextFile(data);
+        runAlarm(data);
+        processNotification(data);
+    }
+
     private void processTxt(FirebaseVisionText text) {
         Log.w("MainActivity", text.getText());
         textView.setText(text.getText());
+        runSystems(text.getText());
     }
 
     @Override
